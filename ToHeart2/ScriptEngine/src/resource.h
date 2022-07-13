@@ -2,6 +2,9 @@
 // Microsoft Visual C++ generated include file.
 // Used by Script1.rc
 //
+
+#include "winres.h"
+
 #define IDCANCEL2                       3
 #define IDR_MENU1                       101
 #define IDR_MENU2                       102
