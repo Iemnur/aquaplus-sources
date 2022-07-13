@@ -314,9 +314,8 @@ char *ClReadFile::GetFileName(int arcFileNum,int num)
 ClReadFile::ClReadFile()
 {
 	int		i;
-	
 	ArcFile.reserve(15);
-	for(i=0;i<15;i++){
+	for(i=0;i< ArcFile.size();i++){
 		ArcFile[i].handle = NULL;
 		ArcFile[i].fileCount = 0;
 		ArcFile[i].pack_file = NULL;

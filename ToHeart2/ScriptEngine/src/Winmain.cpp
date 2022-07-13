@@ -1,5 +1,5 @@
 
-#include "resource.h"
+//#include "resource.h"
 #include "mm_std.h"
 #include "main.h"
 
