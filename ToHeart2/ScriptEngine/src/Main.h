@@ -25,7 +25,7 @@
 
 #define TITLE_NAME		"ToHeart2 XRATED"
 
-#define	REG_KEY			"SoftWare\\Leaf\\"TITLE_NAME
+#define	REG_KEY			"SoftWare\\Leaf\\" TITLE_NAME
 #define	REG_KEY_CONF	(REG_KEY"\\config")
 
 

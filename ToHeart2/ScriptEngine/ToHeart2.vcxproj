@@ -14,17 +14,20 @@
     <RootNamespace>ToHeart2</RootNamespace>
     <SccProjectName />
     <SccLocalPath />
+    <ProjectGuid>{6EE9C0B8-D76D-7A4F-120B-360A9DACBE3C}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -51,7 +54,11 @@
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)..\my_inc2;$(ProjectDir)..\..\OGG\oggDec;$(ProjectDir)..\..\XViD\XVidDec;$(ProjectDir)..\..\OGG\vorbis\include\vorbis;$(ProjectDir)..\..\OGG\ogg\include;$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">${ProjectDir}..\..\XViD;${ProjectDir}..\..\OGG;$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)..\..\XViD;$(ProjectDir)..\..\OGG;$(ProjectDir)..\..\OGG\lib_proj;$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(ProjectDir)..\my_inc2;$(ProjectDir)..\..\OGG\oggDec;$(ProjectDir)..\..\XViD\XVidDec;$(ProjectDir)..\..\OGG\vorbis\include\vorbis;$(ProjectDir)..\..\OGG\ogg\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\..\XViD;$(ProjectDir)..\..\OGG;$(ProjectDir)..\..\OGG\lib_proj;$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -73,13 +80,14 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>XviDDec.lib;ogg_static.lib;vorbis_static.lib;ddraw.lib;Vfw32.lib;Msacm32.lib;dsound.lib;dxguid.lib;winmm.lib;comctl32.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>ToHeart2.exe</OutputFile>
+      <AdditionalDependencies>XviDDec.lib;ogg_static.lib;vorbis_static.lib;ddraw.lib;Vfw32.lib;Msacm32.lib;dsound.lib;dxguid.lib;winmm.lib;comctl32.lib;odbc32.lib;odbccp32.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Release/ScriptEngine.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <Midl>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -114,12 +122,13 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>XviDDec.lib;ogg_static.lib;vorbis_static.lib;ddraw.lib;Vfw32.lib;Msacm32.lib;dsound.lib;dxguid.lib;winmm.lib;comctl32.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>XviDDec.lib;ogg_static.lib;vorbis_static.lib;ddraw.lib;Vfw32.lib;Msacm32.lib;dsound.lib;dxguid.lib;winmm.lib;comctl32.lib;odbc32.lib;odbccp32.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/ScriptEngine.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <Midl>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -451,7 +460,7 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</BrowseInformation>
     </ClCompile>
-    <ClCompile Include="..\oggDec\oggDec.cpp">
+    <ClCompile Include="..\..\OGG\oggDec\oggDec.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
@@ -555,7 +564,7 @@
     <ClInclude Include="..\my_inc2\mouse.h" />
     <ClInclude Include="..\my_inc2\movie.h" />
     <ClInclude Include="..\my_inc2\movPlayer.h" />
-    <ClInclude Include="..\oggDec\oggDec.h" />
+    <ClInclude Include="..\..\OGG\oggDec\oggDec.h" />
     <ClInclude Include="..\my_inc2\Palette.h" />
     <ClInclude Include="..\my_inc2\pcm.h" />
     <ClInclude Include="..\my_inc2\readFile.h" />
