@@ -2,6 +2,9 @@
 // Microsoft Developer Studio generated include file.
 // Used by Script1.rc
 //
+
+#include "winres.h"
+
 #define IDFLASH                         3
 #define IDR_ACCELERATOR1                101
 #define IDR_MENU2                       103

@@ -3825,7 +3825,7 @@ int RenewArrowAction( int char_active )
 				y = (CharControl[ ArrowStruct[i].tno ].py-64)-ArrowStruct[i].py;
 
 				radian = atan2( y, x );
-				if( abs(x)<64 && abs(y)<64 ){
+				if( abs((long)x)<64 && abs((long)y)<64 ){
 					AtackNormalDmg( ArrowStruct[i].ano, ArrowStruct[i].tno, radian, ArrowStruct[i].waza );
 					ResetArrowAction( i );
 				}else{

@@ -1404,7 +1404,7 @@ void SetAriaTable( int range )
 
 
 
-			if( abs(x*MapData.head.sgrid-StartPoint.px) + abs(y*MapData.head.sgrid-StartPoint.py) < range && MapData.sinkin[y*w+x]==0 ){
+			if( abs((long)(x*MapData.head.sgrid-StartPoint.px)) + abs((long)(y*MapData.head.sgrid-StartPoint.py)) < range && MapData.sinkin[y*w+x]==0 ){
 				MapControl.aria_table[i] = 2;
 			}else{
 				MapControl.aria_table[i] = 0;
@@ -1436,7 +1436,7 @@ void DrawMapMoveAria( int del, int aria_type, int a, int r, int g, int b )
 	int	px= (int)(MapControl.px/MapData.head.sgrid);
 	int	py= (int)(MapControl.py/MapData.head.sgrid);
 	float	dx,dy;
-	static	back_j=0;
+	static int	back_j=0;
 	int		flag;
 
 	for(j=0;j<back_j;j++){

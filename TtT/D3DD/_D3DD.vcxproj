@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+    <ProjectGuid>{A0EA9B16-7619-43C0-9CB1-F0B0F529CF02}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>TtT</TargetName>
+    <IncludePath>$(IncludePath);..\..\OGG\oggDec;..\..\XViD\XVidDec;..\..\OGG\vorbis\include\vorbis;..\..\OGG\ogg\include;..\my_inc2;$(DXSDK_DIR)include;$(DXSDK_DIR)DX8\include</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)DX8\Lib;$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(IncludePath);..\..\OGG\oggDec;..\..\XViD\XVidDec;..\..\OGG\vorbis\include\vorbis;..\..\OGG\ogg\include;..\my_inc2;$(DXSDK_DIR)include;$(DXSDK_DIR)DX8\include</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)DX8\Lib;$(DXSDK_DIR)Lib\x86;$(LibraryPath)</LibraryPath>
+    <TargetName>TtT</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>.\Release\_D3DD.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\Release\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Release\_D3DD.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0411</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\_D3DD.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalDependencies>XviDDec60.lib;ogg_static.lib;vorbis_static.lib;msacm32.lib;winmm.lib;d3dx8dt.lib;d3d8.lib;d3dxof.lib;dxguid.lib;ddraw.lib;dsound.lib;odbc32.lib;odbccp32.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\lib_ex;..\..\OGG\lib_proj;..\XviD\XVidDec_60\bin;$(DXSDK_DIR)Lib\x86;$(DXSDK_DIR)DX8\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <MinimalRebuild>false</MinimalRebuild>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>.\Debug\_D3DD.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\Debug\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Debug\_D3DD.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0411</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\_D3DD.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalDependencies>XviDDec60.lib;ogg_static.lib;vorbis_static.lib;msacm32.lib;winmm.lib;d3dx8dt.lib;d3d8.lib;d3dxof.lib;dxguid.lib;ddraw.lib;dsound.lib;odbc32.lib;odbccp32.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\lib_ex;..\..\OGG\lib_proj;..\XviD\XVidDec_60\bin;$(DXSDK_DIR)Lib\x86;$(DXSDK_DIR)DX8\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\my_inc2\Comp_LZS.cpp" />
+    <ClCompile Include="..\my_inc2\Comp_pac.cpp" />
+    <ClCompile Include="..\my_inc2\ctrl.cpp" />
+    <ClCompile Include="..\my_inc2\d3d_draw.cpp" />
+    <ClCompile Include="..\my_inc2\d3d_Font.cpp" />
+    <ClCompile Include="..\my_inc2\d3d_main.cpp" />
+    <ClCompile Include="..\my_inc2\d3d_text.cpp" />
+    <ClCompile Include="..\my_inc2\dispSprite.cpp" />
+    <ClCompile Include="..\my_inc2\Enum.cpp" />
+    <ClCompile Include="..\my_inc2\GlobalDraw.cpp" />
+    <ClCompile Include="..\my_inc2\keybord.cpp" />
+    <ClCompile Include="..\my_inc2\mouse.cpp" />
+    <ClCompile Include="..\my_inc2\readFile.cpp" />
+    <ClCompile Include="..\my_inc2\soundDS.cpp" />
+    <ClCompile Include="..\my_inc2\STD_Debug.cpp" />
+    <ClCompile Include="..\my_inc2\STD_File.cpp" />
+    <ClCompile Include="..\my_inc2\STD_Windows.cpp" />
+    <ClCompile Include="..\my_inc2\tga.cpp" />
+    <ClCompile Include="..\..\OGG\oggDec\oggDec.cpp" />
+    <ClCompile Include="src\Escript.cpp" />
+    <ClCompile Include="src\GM_Avg.cpp" />
+    <ClCompile Include="src\GM_Battle.cpp" />
+    <ClCompile Include="src\GM_Castle.cpp" />
+    <ClCompile Include="src\GM_Char.cpp" />
+    <ClCompile Include="src\GM_CharThink.cpp" />
+    <ClCompile Include="src\GM_Item.cpp" />
+    <ClCompile Include="src\GM_Magic.cpp" />
+    <ClCompile Include="src\GM_Main.cpp" />
+    <ClCompile Include="src\GM_SetBmp.cpp" />
+    <ClCompile Include="src\GM_Title.cpp" />
+    <ClCompile Include="src\GM_World.cpp" />
+    <ClCompile Include="src\windows.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src\Script1.rc">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\my_inc2\Bmp.h" />
+    <ClInclude Include="..\my_inc2\ClCommon.h" />
+    <ClInclude Include="..\my_inc2\Comp_BmpPac.h" />
+    <ClInclude Include="..\my_inc2\comp_LZS.h" />
+    <ClInclude Include="..\my_inc2\comp_pac.h" />
+    <ClInclude Include="..\my_inc2\ctrl.h" />
+    <ClInclude Include="..\my_inc2\d3d_draw.h" />
+    <ClInclude Include="..\my_inc2\d3d_Font.h" />
+    <ClInclude Include="..\my_inc2\d3d_main.h" />
+    <ClInclude Include="..\my_inc2\d3d_text.h" />
+    <ClInclude Include="..\my_inc2\DISP.H" />
+    <ClInclude Include="..\my_inc2\dispSprite.h" />
+    <ClInclude Include="..\my_inc2\Draw.h" />
+    <ClInclude Include="..\my_inc2\DrawPrim.h" />
+    <ClInclude Include="..\my_inc2\Enum.h" />
+    <ClInclude Include="..\my_inc2\font.h" />
+    <ClInclude Include="..\my_inc2\GlobalDraw.h" />
+    <ClInclude Include="..\my_inc2\keybord.h" />
+    <ClInclude Include="..\my_inc2\mouse.h" />
+    <ClInclude Include="..\my_inc2\Palette.h" />
+    <ClInclude Include="..\my_inc2\readFile.h" />
+    <ClInclude Include="..\my_inc2\soundDS.h" />
+    <ClInclude Include="..\my_inc2\STD_Debug.h" />
+    <ClInclude Include="..\my_inc2\STD_File.h" />
+    <ClInclude Include="..\my_inc2\STD_Windows.h" />
+    <ClInclude Include="..\my_inc2\text.h" />
+    <ClInclude Include="..\my_inc2\tga.h" />
+    <ClInclude Include="..\..\OGG\vorbis\include\vorbis\codec.h" />
+    <ClInclude Include="..\..\OGG\oggDec\oggDec.h" />
+    <ClInclude Include="..\XviD\XVidDec_60\bin\xvid.h" />
+    <ClInclude Include="..\XviD\XVidDec_60\bin\xvid_dec.h" />
+    <ClInclude Include="mes\Escr.h" />
+    <ClInclude Include="src\DAT_CharName.h" />
+    <ClInclude Include="src\DAT_ItemParam.h" />
+    <ClInclude Include="src\DAT_MagicParam.h" />
+    <ClInclude Include="src\DAT_ScriptListName.h" />
+    <ClInclude Include="src\Escript.h" />
+    <ClInclude Include="src\GM_Avg.h" />
+    <ClInclude Include="src\GM_Battle.h" />
+    <ClInclude Include="src\GM_Char.h" />
+    <ClInclude Include="src\GM_CharThink.h" />
+    <ClInclude Include="src\GM_Item.h" />
+    <ClInclude Include="src\GM_Magic.h" />
+    <ClInclude Include="src\GM_Main.h" />
+    <ClInclude Include="src\GM_SetBmp.h" />
+    <ClInclude Include="src\GM_World.h" />
+    <ClInclude Include="src\main.h" />
+    <ClInclude Include="src\resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\icon1.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
