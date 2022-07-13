@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\my_inc2\Bmp.cpp" />
+    <ClCompile Include="..\my_inc2\Comp_BmpPac.cpp" />
+    <ClCompile Include="..\my_inc2\Comp_LZS.cpp" />
+    <ClCompile Include="..\my_inc2\Comp_pac.cpp" />
+    <ClCompile Include="..\my_inc2\ctrl.cpp" />
+    <ClCompile Include="..\my_inc2\DISP.CPP" />
+    <ClCompile Include="..\my_inc2\dispSprite.cpp" />
+    <ClCompile Include="..\my_inc2\Draw.cpp" />
+    <ClCompile Include="..\my_inc2\Draw08.cpp" />
+    <ClCompile Include="..\my_inc2\Draw16.cpp" />
+    <ClCompile Include="..\my_inc2\Draw24.cpp" />
+    <ClCompile Include="..\my_inc2\Draw32.cpp" />
+    <ClCompile Include="..\my_inc2\DrawPrim16.cpp" />
+    <ClCompile Include="..\my_inc2\DrawPrim24.cpp" />
+    <ClCompile Include="..\my_inc2\DrawPrim32.cpp" />
+    <ClCompile Include="..\my_inc2\Enum.cpp" />
+    <ClCompile Include="src\Escript.cpp" />
+    <ClCompile Include="..\my_inc2\Font.cpp" />
+    <ClCompile Include="src\GM_Avg.cpp" />
+    <ClCompile Include="src\GM_AvgBack.cpp" />
+    <ClCompile Include="src\GM_AvgChar.cpp" />
+    <ClCompile Include="src\GM_AvgChip.cpp" />
+    <ClCompile Include="src\GM_AvgEnding.cpp" />
+    <ClCompile Include="src\GM_AvgMsg.cpp" />
+    <ClCompile Include="src\GM_Demo.cpp" />
+    <ClCompile Include="src\GM_Omake.cpp" />
+    <ClCompile Include="src\GM_Save.cpp" />
+    <ClCompile Include="src\GM_Title.cpp" />
+    <ClCompile Include="src\GM_Window.cpp" />
+    <ClCompile Include="..\my_inc2\keybord.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="..\my_inc2\MM_std.cpp" />
+    <ClCompile Include="..\my_inc2\mouse.cpp" />
+    <ClCompile Include="..\my_inc2\Movie.cpp" />
+    <ClCompile Include="..\my_inc2\movPlayer.cpp" />
+    <ClCompile Include="..\..\OGG\oggDec\oggDec.cpp" />
+    <ClCompile Include="..\my_inc2\Palette.cpp" />
+    <ClCompile Include="..\my_inc2\readFile.cpp" />
+    <ClCompile Include="..\my_inc2\soundDS.cpp" />
+    <ClCompile Include="..\my_inc2\text.cpp" />
+    <ClCompile Include="..\my_inc2\tga.cpp" />
+    <ClCompile Include="src\Winmain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\my_inc2\Bmp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\ClCommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\Comp_BmpPac.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\comp_LZS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\comp_pac.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\ctrl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\DISP.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\dispSprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\Draw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\DrawPrim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\Enum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mes\Escr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Escript.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GM_avg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GM_AvgBack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GM_AvgChar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GM_AvgChip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GM_AvgEnding.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GM_AvgMsg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GM_Demo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GM_Omake.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GM_Save.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GM_Title.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\keybord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\MM_std.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\mouse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\movie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\movPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\OGG\oggDec\oggDec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\Palette.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\pcm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\readFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\tga.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\XviD\XVidDec\bin\xvid_dec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GM_Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\my_inc2\soundDS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\CURSOR1.CUR">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\scr_name.dat">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\T2_256.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{88383bd5-f869-428b-a6b1-d5ef7444bff9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{8cfd64e7-c6cb-4765-a460-8e65008280ce}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src\Script1.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
