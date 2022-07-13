@@ -102,6 +102,10 @@ void MUS_RenewMouseButton( int button, int flag )
 }
 
 
+inline int Round(float f)
+{
+	return ((int)(f + 32768.5)) - 32768;
+}
 
 void MUS_RenewMouse( HWND hwnd, int active, int Flag_MenuSelected )
 {
@@ -115,9 +119,19 @@ void MUS_RenewMouse( HWND hwnd, int active, int Flag_MenuSelected )
 	int				rect_err;
 	static int		activ_bak=0;
 
-
 	GetCursorPos( &mp );
+
+	/*RECT result;
+	GetWindowRect(hwnd, &result);*/
+	//constexpr float Scale = 0.625f;  // 800 / 1280
+
+	float Scale = (MouseStruct.disp_w / (float)DISP_X2);  // 800 / 1280
+
+
 	ScreenToClient( hwnd, &mp );
+	mp.x = Round(mp.x * Scale);
+	mp.y = Round(mp.y * Scale);
+
 	MouseStruct.mx = mx = mp.x;
 	MouseStruct.my = my = mp.y;
 

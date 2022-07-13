@@ -185,8 +185,8 @@ CMovPlayerFrm::CMovPlayerFrm()
 	fh = NULL;
 	srcWidth = -1;
 	srcHeight = -1;
-	wWidth = 800;
-	wHeight = 600;
+	wWidth = DISP_X2;
+	wHeight = DISP_Y2;
 	wX = 0;
 	wY = 0;
 	DecodeFlag=0;
@@ -233,7 +233,7 @@ void CMovPlayerFrm::OnPaint()
 			HBRUSH brush = CreateSolidBrush(RGB(0, 0, 8));
 		
 			HBRUSH old_brush = (HBRUSH)SelectObject(hDC,brush);
-			PatBlt(hDC,0,0, 800, 600, PATCOPY);
+			PatBlt(hDC,0,0, DISP_X2, DISP_Y2, PATCOPY);
 			SelectObject(hDC,old_brush);
 
 			DrawSurface(GetDeviceCaps(hDC,BITSPIXEL));
@@ -380,7 +380,7 @@ BOOL CMovPlayerFrm::OpenMovie( HWND hWnd, char *fname, int x, int y, int w, int 
 	HBRUSH brush = CreateSolidBrush(RGB(0, 0, 8));
 
 	HBRUSH old_brush = (HBRUSH)SelectObject(hDC,brush);
-	PatBlt(hDC,0,0, 800, 600, PATCOPY);
+	PatBlt(hDC,0,0, DISP_X2, DISP_Y2, PATCOPY);
 	SelectObject(hDC,old_brush);
 	DeleteObject(brush);
 	::ReleaseDC(m_hWnd,hDC);

@@ -104,7 +104,7 @@
 #define LAY_DISP	(LAY_SYSTEM+10)			
 
 #define DOS_FONT	20	
-#define SYS_FONT	34
+#define SYS_FONT	24
 #define RUBI_FONT	16	
 #define CHIP_FONT	24	
 

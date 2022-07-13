@@ -1473,10 +1473,10 @@ static LRESULT CALLBACK WndProc( HWND hwnd, UINT wmes, UINT wparam, LONG lparam)
 				int	my = GetSystemMetrics(SM_CYMENUSIZE)+GetSystemMetrics(SM_CYBORDER)*2
 						+GetSystemMetrics(SM_CYSIZE)+GetSystemMetrics(SM_CYDLGFRAME)*2;
 
-				mminfo->ptMinTrackSize.x = DISP_X+mx;	
-				mminfo->ptMinTrackSize.y = DISP_DY+my;	
-				mminfo->ptMaxTrackSize.x = DISP_X+mx;	
-				mminfo->ptMaxTrackSize.y = DISP_DY+my;	
+				mminfo->ptMinTrackSize.x = DISP_X2+mx;	
+				mminfo->ptMinTrackSize.y = DISP_DY2+my;	
+				mminfo->ptMaxTrackSize.x = DISP_X2+mx;	
+				mminfo->ptMaxTrackSize.y = DISP_DY2+my;	
 			}
 			break;
 		case WM_CREATE:
@@ -1506,6 +1506,7 @@ static LRESULT CALLBACK WndProc( HWND hwnd, UINT wmes, UINT wparam, LONG lparam)
 			}
 			MainWindow.min_=OFF;
 			MUS_ShowCursor( ON );
+			
 			break;
 		case WM_TIMER:
 			if(TentouFlag){
@@ -1828,6 +1829,9 @@ void WIN_SetRegistryAmount( char *key, long amount )
 }
 
 
+HMODULE LoadStretcher() {
+	return LoadLibrary("Stretcher.dll");
+}
 
 void WIN_Init( void )
 {
@@ -1842,6 +1846,15 @@ void WIN_Init( void )
 
 
 	InitBootFlag = !STD_CheckFile( "Sys.sav" );
+
+	if (!STD_CheckFile("Stretcher.dll") && !STD_CheckFile("Stretcher_d.dll")) {
+		DISP_X2 = 1280;
+		DISP_Y2 = 960;
+		DISP_DY2 = 960;
+	}
+	else {
+		LoadStretcher();
+	}
 
 	BMP_SetPackDir( PAC_GRP );
 	FNT_SetPackDir( PAC_FNT );
@@ -2106,6 +2119,10 @@ int PASCAL WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdP
 	}
 #endif
 
+#ifdef _DEBUG
+
+	Debug.flag = ON;
+#endif // DEBUG
 
 	if( lpszCmdParam[0]!='\0' ){
 		int		i=0;

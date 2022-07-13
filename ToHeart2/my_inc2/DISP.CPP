@@ -24,6 +24,22 @@ int	DISP_X = 800;
 int	DISP_Y = 600;
 int	DISP_DY = 600;
 
+#ifdef _DEBUG
+
+int	DISP_X2 = 1280;
+int	DISP_Y2 = 960;
+int	DISP_DY2 = 960;
+
+#else
+
+int	DISP_X2 = 800;
+int	DISP_Y2 = 600;
+int	DISP_DY2 = 600;
+
+#endif // _DEBUG
+
+
+
 
 #define LAYER_MAX	64
 

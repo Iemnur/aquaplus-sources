@@ -17,6 +17,10 @@ extern int	DISP_X;
 extern int	DISP_Y;
 extern int	DISP_DY;
 
+extern int	DISP_X2;
+extern int	DISP_Y2;
+extern int	DISP_DY2;
+
 
 #define BMP_256P	0
 #define BMP_HIGH	1

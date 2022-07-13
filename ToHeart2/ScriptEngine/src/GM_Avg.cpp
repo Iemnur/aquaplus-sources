@@ -3718,14 +3718,17 @@ void AVG_SetMovie( int mode, int no )
 EnableWindosChengMenu(1);
 	switch(mode){
 		case 0:
-			switch(Avg.mov_lv){
-				default:
-				case 0:	movPlayerFrm->OpenMovie( MainWindow.hwnd, "TH2_OP_480x272_2M.avi", 0,76,800, 448 );	break;
-				case 1:	movPlayerFrm->OpenMovie( MainWindow.hwnd, "TH2_OP_640x352_4M.avi", 0,76,800, 448 );	break;
-				case 2:	movPlayerFrm->OpenMovie( MainWindow.hwnd, "TH2_OP_800x448_5M.avi", 0,76,800, 448 );	break;
+		{
+			int h = (int)((float)448 / ((float)800 / (float)DISP_X2));
+			switch (Avg.mov_lv) {
+			default:
+			case 0:	movPlayerFrm->OpenMovie(MainWindow.hwnd, "TH2_OP_480x272_2M.avi", 0, 76, 800, 448);	break;
+			case 1:	movPlayerFrm->OpenMovie(MainWindow.hwnd, "TH2_OP_640x352_4M.avi", 0, 76, 800, 448);	break;
+			case 2:	movPlayerFrm->OpenMovie(MainWindow.hwnd, "TH2_OP_800x448_5M.avi", 0, (DISP_Y2 - h) / 2, DISP_X2, h);	break;
 			}
-			AVG_PlayBGM( 0, 0, FALSE, 255, TRUE );
-			break;
+			AVG_PlayBGM(0, 0, FALSE, 255, TRUE);
+			break; 
+		}
 		case 1:
 			switch(Avg.mov_lv){
 				default:
@@ -3734,7 +3737,7 @@ EnableWindosChengMenu(1);
 				case 2:	wsprintf( fname, "TH2_ED_%02d_800_3M.avi", no );	break;
 			}
 
-			movPlayerFrm->OpenMovie( MainWindow.hwnd, fname, 0,0,800, 600 );
+			movPlayerFrm->OpenMovie( MainWindow.hwnd, fname, 0,0, DISP_X2, DISP_Y2);
 			AVG_PlayBGM( 50, 0, FALSE, 255, TRUE );
 			break;
 		case 2:
@@ -3742,7 +3745,7 @@ EnableWindosChengMenu(1);
 				default:
 				case 0:	movPlayerFrm->OpenMovie( MainWindow.hwnd, "TH2_TR_480x360_2M.avi", 0,0,800, 600 );	break;
 				case 1:	movPlayerFrm->OpenMovie( MainWindow.hwnd, "TH2_TR_640x480_4M.avi", 0,0,800, 600 );	break;
-				case 2:	movPlayerFrm->OpenMovie( MainWindow.hwnd, "TH2_TR_800x600_5M.avi", 0,0,800, 600 );	break;
+				case 2:	movPlayerFrm->OpenMovie( MainWindow.hwnd, "TH2_TR_800x600_5M.avi", 0,0, DISP_X2, DISP_Y2);	break;
 			}
 			AVG_PlayBGM( 99, 0, FALSE, 255, TRUE );
 			break;
@@ -3751,7 +3754,7 @@ EnableWindosChengMenu(1);
 				default:
 				case 0:	movPlayerFrm->OpenMovie( MainWindow.hwnd, "Leaf_480x360_2M.avi", 0,0,800,600 );	break;
 				case 1:	movPlayerFrm->OpenMovie( MainWindow.hwnd, "Leaf_640x480_4M.avi", 0,0,800,600 );	break;
-				case 2:	movPlayerFrm->OpenMovie( MainWindow.hwnd, "Leaf_800x600_5M.avi", 0,0,800,600 );	break;
+				case 2:	movPlayerFrm->OpenMovie( MainWindow.hwnd, "Leaf_800x600_5M.avi", 0,0, DISP_X2, DISP_Y2);	break;
 			}
 			break;
 	}

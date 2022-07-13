@@ -21,6 +21,10 @@
 #define MOUSE_RBTRIGGER		9
 #define MOUSE_MBTRIGGER		10
 
+extern int	DISP_X2;
+extern int	DISP_Y2;
+extern int	DISP_DY2;
+
 extern void MUS_SetClickThrough( void );
 
 extern void MUS_InitMouse( int disp_w, int disp_h );

@@ -249,8 +249,12 @@ void MAIN_SystemControl( void )
 			
 
 
+#ifdef _DEBUG
 
-				Debug.flag = 0;
+				Debug.flag = ON;
+#else
+				Debug.flag = OFF;
+#endif // DEBUG
 
 				if(KeyCond.trg.f) Debug.frame = !Debug.frame;	
 				if(KeyCond.trg.p) Debug.pos   = !Debug.pos;		

@@ -317,41 +317,95 @@ void ResetHistoryVoiceMouseRect( void )
 }
 void SetHistoryVoiceMouseRect( void )
 {
-	int	i,j,k,m, n;
+	int	i,j,k,m, n, has_c;
 	int	cnt = (NovelBuf.bpoint-1-NovelBuf.bcount+NLOG_MAX)%NLOG_MAX;
+	int cblock[32] = {}, str_cnt, ii, jj;
+	int halfwidth = SYS_FONT / 2;
+
 
 	m=0;
 	for( i=0 ; i<NovelBuf.nv[cnt].vcount ; i++ ){
 		j=0;
 		n=0;
+		has_c = 0;
+		str_cnt = 0;
+		ii = 0;
+		jj = 0;
 		while(NovelBuf.buf[cnt][ NovelBuf.nv[cnt].vstcount[i]+j ]){
 			if( _mbsncmp( (BYTE*)&NovelBuf.buf[cnt][ NovelBuf.nv[cnt].vstcount[i]+j ], (BYTE*)"v", 2 )==0 ){
+				if (str_cnt) {
+					cblock[ii++] = str_cnt;
+					str_cnt = 0;
+				}
 				break;
 			}
 			if( _mbsncmp( (BYTE*)&NovelBuf.buf[cnt][ NovelBuf.nv[cnt].vstcount[i]+j ], (BYTE*)"\\k", 2 )==0 ){
 				n+=2;
-				if(j!=0)	break;
+				j++;
+				if (j != 0 && has_c) { j++; cblock[ii++] = str_cnt; str_cnt = 0; break; };
 			}
-			if( _mbsncmp( (BYTE*)&NovelBuf.buf[cnt][ NovelBuf.nv[cnt].vstcount[i]+j ], (BYTE*)"\\n", 2 )==0 ){
+			else if( _mbsncmp( (BYTE*)&NovelBuf.buf[cnt][ NovelBuf.nv[cnt].vstcount[i]+j ], (BYTE*)"\\n", 2 )==0 ){
 				n+=2;
-				if(j!=0)	break;
+				j++;
+
+				cblock[ii++] = str_cnt;
+				str_cnt = 0;
+				
+			}
+			/*else if( _mbsncmp( (BYTE*)&NovelBuf.buf[cnt][ NovelBuf.nv[cnt].vstcount[i]+j ], (BYTE*)"\\n", 2 )==0 ){
+				n+=1;
+				j++;
+				if(j!=0 && has_c )	break;
+			}*/
+			else
+			{
+				has_c = 1;
+				str_cnt++;
+
+				// max = 59 halfwith char
+				if (str_cnt > (((SYS_FONT * MES_POS_W) - SYS_FONT) / halfwidth) + 1){
+					cblock[ii++] = str_cnt;
+					str_cnt = 0;
+				}
 			}
 			j++;
 		}
-		int	vwork = NovelBuf.nv[cnt].px[i]+17*(j-n);
+
+		if (str_cnt) {
+			cblock[ii++] = str_cnt;
+		}
+
+		int	vwork = NovelBuf.nv[cnt].px[i]+ halfwidth *(j-n);
 		int	vpx   = NovelBuf.nv[cnt].px[i];
 		int	vpy   = NovelBuf.nv[cnt].py[i];
 
-		MUS_SetMouseRectAdd( 0, 32+m++, 32+i, vpx, vpy-9, 17*j,34+18, ON );
-		vwork -= 34*20;
-		while( vwork>0 ){
-			vpx=MES_POS_X;
-			vpy+=MES_PICH_H+34;
-			MUS_SetMouseRectAdd( 0, 32+m++, 32+i, vpx, vpy-9, vwork, 34+18, ON );
-			vwork -= 34*20;
+		//MUS_SetMouseRectAdd( 0, 32+m++, 32+i, vpx, vpy-9, halfwidth * (j - n), /*34 + 18*/ MES_PICH_H + SYS_FONT, ON );
+		//int row = ((vpy - MES_POS_Y) / (MES_PICH_H + SYS_FONT)) + 1;
+		//vwork -= (row * (SYS_FONT * MES_POS_W) - vpx);
+
+		//int char_remain = ((j - n) - ((SYS_FONT * MES_POS_W) - vpx) / halfwidth);
+
+		//while(char_remain >0 && row ){
+		//	row--;
+		//	vpx=MES_POS_X;
+		//	vpy+=MES_PICH_H+SYS_FONT;
+		//	MUS_SetMouseRectAdd( 0, 32+m++, 32+i, vpx, vpy-9, (char_remain + 1) * halfwidth, /*34 + 18*/ MES_PICH_H + SYS_FONT, ON );
+		//	vwork -= (row * (SYS_FONT * MES_POS_W) - vpx);
+		//	char_remain -= (((SYS_FONT * MES_POS_W) - vpx) / halfwidth);
+		//}
+
+		while (ii)
+		{
+			if (cblock[jj]) {
+				MUS_SetMouseRectAdd(0, 32 + m++, 32 + i, vpx, vpy - 9, cblock[jj] * halfwidth, /*34 + 18*/ MES_PICH_H + SYS_FONT, ON);
+			}
+			vpx = MES_POS_X;
+			vpy += MES_PICH_H + SYS_FONT;
+			ii--;
+			jj++;
 		}
 
-		for( k=0; k<(NovelBuf.nv[cnt].px[i]-MES_POS_X)/17; k++ ){
+		for( k=0; k<(NovelBuf.nv[cnt].px[i]-MES_POS_X)/ halfwidth; k++ ){
 			NovelBuf.vv_mes[i][k] = ' ';
 		}
 		j=0;
@@ -436,10 +490,10 @@ void ResetHistorySystemMouseRect( void )
 
 int	MES_POS_X  = (96)/2;
 int	MES_POS_Y  = 100/2;
-int	MES_POS_W  = 20;
+int	MES_POS_W  = 30;
 int	MES_POS_H  = 10;
 int	MES_PICH_W = 0;	
-int	MES_PICH_H = 18;
+int	MES_PICH_H = 10;
 int	MES_KAGE   = 2;
 
 void AVG_SetNovelParam( int fsize, int posx, int posy, int posw, int posh, int pichw, int pichh, int kage )
@@ -2948,7 +3002,7 @@ void AVG_ControlSelectWindow( void )
 					if( chk_flag ){
 						DSP_SetText( TXT_SELECT+j, LAY_WINDOW+1, SYS_FONT, ON, SelectWindow.mes[j] );
 
-						DSP_SetTextPos( TXT_SELECT+j, 32, py + SYS_FONT*2 + 13*j+h, 20, 4 );
+						DSP_SetTextPos( TXT_SELECT+j, 32, py + SYS_FONT*2 + 13*j+h, MES_POS_W + 1, 4 );
 						DSP_SetTextKage( TXT_SELECT+j, 2 );
 						DSP_SetTextBrightFlag( TXT_SELECT+j, ON );
 						DSP_SetTextColor( TXT_SELECT+j, FCT_GLAY );

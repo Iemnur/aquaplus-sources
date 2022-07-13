@@ -29,7 +29,9 @@ public:
 extern MovPlayerWnd	*movPlayerWnd;
 extern BOOL			MovPlaying;
 
-
+extern int	DISP_X2;
+extern int	DISP_Y2;
+extern int	DISP_DY2;
 
 
 
